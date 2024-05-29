@@ -1,0 +1,194 @@
+/* Style.css */
+
+/* Estilo global */
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Lato', sans-serif, 'Open Sans', sans-serif, 'PT Sans', sans-serif;
+    background-color: #1c1c3c; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Panel izquierdo */
+.left-panel, .right-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-panel {
+    background: linear-gradient(135deg, #000000, #4B0082, #FF1493, #FFFFFF);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Panel derecho */
+.right-panel {
+    background: url('imagen1-1.webp') no-repeat center center;
+    background-size: cover;
+}
+
+/* Estilo del formulario */
+form {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Estilo del formulario */
+form h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-align: center;
+    background: linear-gradient(135deg, #000000, #4B0082, #FF1493, #FFFFFF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Estilo de etiquetas y entradas */
+label {
+    display: block;
+    margin: 10px 0 5px 0;
+    color: #555;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.label-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.label-container i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.label-container input {
+    width: calc(100% - 40px);
+    padding: 10px 10px 10px 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: border 0.3s ease;
+}
+
+.label-container input:focus {
+    border-color: #4a90e2;
+}
+
+/* Botones */
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4a90e2;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #357ab8;
+    transform: translateY(-3px);
+}
+
+.secondary-button {
+    background-color: #009ffd;
+    color: white;
+}
+
+.secondary-button:hover {
+    background-color: #2a2a72;
+    transform: translateY(-3px);
+}
+
+/* Enlaces */
+a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Pie del formulario */
+.form-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+/* Iconos sociales */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #333;
+}
+
+/* Estilo del contenedor de errores */
+.error-container {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ffcccc; /* Color de fondo del contenedor */
+    border: 1px solid #ff0000; /* Borde rojo */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilo del mensaje de error */
+.error-message {
+    color: #ff0000; /* Color de texto rojo */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Agrega tus estilos CSS aquí */
+
+.error-message {
+    color: red;
+    margin-top: 5px;
+}
