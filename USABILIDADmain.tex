@@ -1,0 +1,152 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{fullpage} % Paquete para ajustar los márgenes
+\usepackage{url}
+
+\title{Métricas de Usabilidad de Software}
+\author{Nelyda Ayde Condori Condori}
+\date{June 13, 2024}
+
+\definecolor{codegray}{gray}{0.9}
+
+\lstset{
+    backgroundcolor=\color{codegray},
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    frame=single,
+    tabsize=2,
+    captionpos=b,
+    keepspaces=true
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Definición y Tipos}
+
+Las métricas de usabilidad son esenciales para evaluar la efectividad y eficiencia
+de un software. Algunos tipos importantes son:
+
+\begin{itemize}
+    \item \textbf{Eficiencia de Tarea:} Tiempo necesario para completar una tarea específica.
+    \item \textbf{Tasa de Éxito:} Porcentaje de tareas completadas con éxito.
+    \item \textbf{Errores:} Número de errores cometidos al realizar una tarea.
+    \item \textbf{Satisfacción del Usuario:} Percepción del usuario sobre la facilidad de uso del software.
+    \item \textbf{Aprendibilidad:} Facilidad con la que los nuevos usuarios pueden completar tareas básicas.
+    \item \textbf{Memorabilidad:} Capacidad de los usuarios para recordar cómo usar el sistema después de un periodo de no usarlo.
+\end{itemize}
+
+\section{Aplicaciones y Limitaciones}
+
+\subsection{Aplicaciones}
+
+Las métricas de usabilidad pueden ser utilizadas para:
+
+\begin{itemize}
+    \item Evaluar y mejorar la UI.
+    \item Comparar diferentes versiones del software.
+    \item Evaluar prototipos antes de la implementación completa.
+    \item Monitorear mejoras en la usabilidad.
+\end{itemize}
+
+\subsection{Limitaciones}
+
+Algunas limitaciones incluyen:
+
+\begin{itemize}
+    \item Pueden ser subjetivas.
+    \item Requieren la participación de usuarios finales.
+    \item Pueden variar según el contexto de uso.
+\end{itemize}
+
+\section{Ejemplo de Implementación en Python}
+
+Aquí se muestra un ejemplo de cómo implementar la medición de algunas métricas de usabilidad en Python:
+
+\begin{lstlisting}[language=Python]
+import time
+import random
+
+def realizar_tarea():
+    tiempo_inicio = time.time()
+    tarea_completada = random.choice([True, False])
+    errores = random.randint(0, 3)
+    time.sleep(random.uniform(1, 5))
+    tiempo_fin = time.time()
+    tiempo_total = tiempo_fin - tiempo_inicio
+    return tiempo_total, tarea_completada, errores
+
+usuarios = 10
+tiempos = []
+exitos = 0
+errores_totales = 0
+
+for _ in range(usuarios):
+    tiempo, exito, errores = realizar_tarea()
+    tiempos.append(tiempo)
+    if exito:
+        exitos += 1
+    errores_totales += errores
+
+eficiencia_promedio = sum(tiempos) / usuarios
+tasa_exito = (exitos / usuarios) * 100
+errores_promedio = errores_totales / usuarios
+
+print(f"Eficiencia de Tarea Promedio: {eficiencia_promedio:.2f} segundos")
+print(f"Tasa de éxito: {tasa_exito:.2f}%")
+print(f"Errores Promedio por Usuario: {errores_promedio:.2f}")
+\end{lstlisting}
+
+\section{Encuestas de Satisfacción del Usuario}
+
+Para evaluar la satisfacción del usuario, se puede usar una herramienta común
+como el System Usability Scale (SUS). A continuación, se muestra un ejemplo de código Python para una encuesta de satisfacción:
+
+\begin{lstlisting}[language=Python]
+def encuesta_satisfaccion():
+    preguntas = [
+        "1. Me gustaría usar este sistema frecuentemente.",
+        "2. Encontré el sistema innecesariamente complejo.",
+        "3. Pensé que el sistema era fácil de usar.",
+        "4. Creo que necesitaría la ayuda de una persona técnica para usar este sistema.",
+        "5. Encontré que las varias funciones en este sistema estaban bien integradas.",
+        "6. Pensé que había demasiada inconsistencia en este sistema.",
+        "7. Imagino que la mayoría de las personas aprenderán a usar este sistema muy rápidamente.",
+        "8. Encontré el sistema muy difícil de usar.",
+        "9. Me sentí muy confiado usando el sistema.",
+        "10. Necesité aprender muchas cosas antes de poder trabajar con este sistema."
+    ]
+    respuestas = []
+    for pregunta in preguntas:
+        respuesta = int(input(f"{pregunta} (1 = Totalmente en desacuerdo, 5 = Totalmente de acuerdo): "))
+        respuestas.append(respuesta)
+
+    return respuestas
+
+usuarios = 5
+resultados = []
+
+for _ in range(usuarios):
+    resultado = encuesta_satisfaccion()
+    resultados.append(resultado)
+
+promedios = [sum(col) / len(col) for col in zip(*resultados)]
+
+print("Promedio de Satisfacción por Pregunta:")
+for i, promedio in enumerate(promedios):
+    print(f"Pregunta {i + 1}: {promedio:.2f}")
+\end{lstlisting}
+
+\section{Referencias}
+
+\begin{enumerate}
+    \item Johnson, D., Smith, A. (2019). Software Productivity Metrics in Agile Development. Journal of Software Engineering, 34(2), 123-134. doi: \url{10.1016/j.jsofteng.2019.01.004}.
+    \item Fenton, N. E., Pfleeger, S. L. (1994). Software Metrics: A Rigorous and Practical Approach. PWS Publishing Co.
+    \item Nielsen, J. (1993). Usability Engineering. Academic Press.
+    \item ISO/IEC 25010:2011. Systems and software engineering – Systems and software Quality Requirements and Evaluation (SQuaRE) – System and software quality models. International Organization for Standardization.
+    \item Brooke, J. (1996). SUS: A ’quick and dirty’ usability scale. In P. W. Jordan, B. Thomas, B. A. Weerdmeester, I. L. McClelland (Eds.), Usability Evaluation in Industry.
+\end{enumerate}
+
+\end{document}
